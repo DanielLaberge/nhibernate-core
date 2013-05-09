@@ -40,6 +40,9 @@ namespace NHibernate.Linq.Visitors
 			// Rewrite non-aggregating group-joins
 			NonAggregatingGroupJoinRewriter.ReWrite(queryModel);
 
+			// Rewrite left-joins
+			LeftJoinRewriter.ReWrite(queryModel);
+
 			// Rewrite paging
 			PagingRewriter.ReWrite(queryModel);
 
@@ -180,6 +183,12 @@ namespace NHibernate.Linq.Visitors
 			else
 			{
 				hqlJoin = _hqlTree.TreeBuilder.LeftJoin(expression, @alias);
+			}
+
+			foreach (var withClause in joinClause.Restrictions)
+			{
+				var booleanExpression = HqlGeneratorExpressionTreeVisitor.Visit(withClause.Predicate, VisitorParameters).AsBooleanExpression();
+				hqlJoin.AddChild(_hqlTree.TreeBuilder.With(booleanExpression));
 			}
 
 			_hqlTree.AddFromClause(hqlJoin);

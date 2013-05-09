@@ -668,6 +668,8 @@
     <Compile Include="NHSpecificTest\BagWithLazyExtraAndFilter\Domain.cs" />
     <Compile Include="NHSpecificTest\BagWithLazyExtraAndFilter\Fixture.cs" />
     <Compile Include="Component\Basic\ComponentWithUniqueConstraintTests.cs" />
+    <Compile Include="NHSpecificTest\NH3459\Fixture.cs" />
+    <Compile Include="NHSpecificTest\NH3459\Order.cs" />
     <Compile Include="NHSpecificTest\NH3408\Fixture.cs" />
     <Compile Include="NHSpecificTest\NH3408\Model.cs" />
     <Compile Include="NHSpecificTest\NH2297\CustomCompositeUserType.cs" />
@@ -700,6 +702,10 @@
     <Compile Include="NHSpecificTest\NH3057\Fixture.cs" />
     <Compile Include="NHSpecificTest\NH2651\Fixture.cs" />
     <Compile Include="NHSpecificTest\NH2651\Model.cs" />
+    <Compile Include="NHSpecificTest\NH3175\Fixture.cs" />
+    <Compile Include="NHSpecificTest\NH3175\Order.cs" />
+    <Compile Include="NHSpecificTest\NH2379\Order.cs" />
+    <Compile Include="NHSpecificTest\NH2379\Fixture.cs" />
     <Compile Include="NHSpecificTest\NH2789\Entities.cs" />
     <Compile Include="NHSpecificTest\NH2789\Fixture.cs" />
     <Compile Include="NHSpecificTest\NH2347\Entity.cs" />

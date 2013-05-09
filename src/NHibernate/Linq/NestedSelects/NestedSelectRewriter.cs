@@ -10,6 +10,7 @@ using NHibernate.Linq.GroupBy;
 using NHibernate.Linq.Visitors;
 using NHibernate.Util;
 using Remotion.Linq;
+using Remotion.Linq.Clauses;
 using Remotion.Linq.Clauses.Expressions;
 
 namespace NHibernate.Linq.NestedSelects
@@ -90,9 +91,14 @@ namespace NHibernate.Linq.NestedSelects
 		{
 			var subQueryMainFromClause = subQueryModel.MainFromClause;
 
+			var restrictions = subQueryModel.BodyClauses
+				.OfType<WhereClause>()
+				.Select(w => new NhWithClause(w.Predicate));
+
 			var join = new NhJoinClause(subQueryMainFromClause.ItemName,
 										subQueryMainFromClause.ItemType,
-										subQueryMainFromClause.FromExpression);
+										subQueryMainFromClause.FromExpression,
+										restrictions);
 
 			queryModel.BodyClauses.Add(@join);
 
