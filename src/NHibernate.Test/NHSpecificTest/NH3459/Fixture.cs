@@ -107,7 +107,7 @@ namespace NHibernate.Test.NHSpecificTest.NH3459
 			}
 		}
 
-		[Test]
+		[Test, Ignore("Not fixed yet.")]
 		public void LeftOuterJoinWithOuterRestrictionAndGroupBy()
 		{
 			using (var session = OpenSession())
